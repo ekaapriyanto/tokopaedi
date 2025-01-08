@@ -17,7 +17,6 @@ export default function LayoutComponent({
         <div className="flex flex-col">
           {!disableNavbar.includes(pathname) && <Navbar />}
           {children}
-          <Footer />
           {!disableNavbar.includes(pathname) && <Footer />}
         </div>
       </SessionProvider>

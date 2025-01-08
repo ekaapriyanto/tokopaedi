@@ -3,7 +3,13 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["riantybatik.co.id"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "riantybatik.co.id",
+        pathname: "/wp-content/uploads/**",
+      },
+    ],
   },
 };
 
