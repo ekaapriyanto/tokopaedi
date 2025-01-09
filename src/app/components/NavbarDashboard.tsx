@@ -5,41 +5,35 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
+  BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const NavbarDashboard = () => {
+  const pathname = usePathname();
+  const paths = pathname.split("/").filter((path) => path);
+
   return (
     <div className="flex items-center justify-between h-16 bg-white border-b border-gray-200">
-      {/* <div className="flex items-center px-4">
-        <div className="relative mx-auto text-gray-600">
-          <input
-            className="border border-gray-300 h-10 w-96 px-5 pr-16 rounded-lg text-sm placeholder-current focus:outline-none dark:bg-gray-500 dark:border-gray-50 dark:text-gray-200"
-            type="search"
-            name="search"
-            placeholder="Search"
-          />
-          <button type="submit" className="absolute right-0 top-0 mt-3 mr-4">
-            <SearchIcon />
-          </button>
-        </div>
-      </div> */}
-
       <Breadcrumb className="ml-5">
         <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/dashboard">Home</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/dashboard/product-admin">
-              Product
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          {/* <BreadcrumbItem>
-          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-        </BreadcrumbItem> */}
+          {paths.map((path, index) => {
+            const href = `/${paths.slice(0, index + 1).join("/")}`;
+            const isLast = index === paths.length - 1;
+
+            return (
+              <BreadcrumbItem key={path}>
+                <BreadcrumbSeparator />
+                {isLast ? (
+                  <BreadcrumbPage>{path}</BreadcrumbPage>
+                ) : (
+                  <BreadcrumbLink href={href}>{path}</BreadcrumbLink>
+                )}
+              </BreadcrumbItem>
+            );
+          })}
         </BreadcrumbList>
       </Breadcrumb>
 

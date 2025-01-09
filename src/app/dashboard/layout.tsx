@@ -4,14 +4,14 @@ import NavbarDashboard from "../components/NavbarDashboard";
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <div className="flex fixed w-full">
+      <div className="flex min-h-screen w-full">
         <SidebarDashboard />
         <div>
-          <div className="top-0">
+          <div className="flex-1 flex flex-col">
             <NavbarDashboard />
           </div>
 
-          <div>{children}</div>
+          <div className="flex-1 p-4 overflow-auto">{children}</div>
         </div>
       </div>
     </>

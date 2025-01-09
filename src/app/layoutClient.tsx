@@ -4,7 +4,11 @@ import { usePathname } from "next/navigation";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
-const disableNavbar = ["/dashboard", "/dashboard/product-admin"];
+const disableNavbar = [
+  "/dashboard",
+  "/dashboard/product-admin",
+  "/dashboard/product-admin/add",
+];
 export default function LayoutComponent({
   children,
 }: Readonly<{

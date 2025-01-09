@@ -21,9 +21,11 @@ import {
 } from "@/components/ui/table";
 import { fetchAdminProducts } from "@/service/adminProduct";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function ProductAdmin() {
+  const router = useRouter();
   const [productAdmin, setProductAdmin] = useState([]);
   const [openMenu, setOpenMenu] = useState<number | null>(null);
 
@@ -55,7 +57,9 @@ export default function ProductAdmin() {
             </button>
           </div>
         </div>
-        <Button>Add Product</Button>
+        <Button onClick={() => router.push("/dashboard/product-admin/add")}>
+          Add Product
+        </Button>
       </div>
       <div className="flex items-center mt-5 mb-5">
         <div className="flex items-center ml-4">
