@@ -25,9 +25,3 @@ export const fetchCategoryImage = async () => {
     return { data: [] };
   }
 };
-
-// export const fetchCoverCategory = () =>
-//   getData("http://localhost:3000/api/catImage");
-
-// export const fetchNewArrival = () =>
-//   getData("http://localhost:3000/api/new-arrival");

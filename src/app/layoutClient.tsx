@@ -1,4 +1,5 @@
 "use client";
+
 import { SessionProvider } from "next-auth/react"; //digunakan untuk mengambil data user
 import { usePathname } from "next/navigation";
 import Footer from "./components/Footer";
@@ -8,6 +9,7 @@ const disableNavbar = [
   "/dashboard",
   "/dashboard/product-admin",
   "/dashboard/product-admin/add",
+  "/dashboard/banner-admin",
 ];
 export default function LayoutComponent({
   children,

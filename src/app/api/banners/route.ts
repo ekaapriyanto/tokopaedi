@@ -6,7 +6,7 @@ export async function GET() {
   try {
     const db = await getDbConnection();
     const [banners] = await (db as any).query(
-      "SELECT * FROM banners WHERE isActive = 1"
+      "select * from banner where isActive = 1"
     );
 
     return NextResponse.json({

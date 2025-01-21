@@ -1,5 +1,5 @@
 "use client";
-import { Calendar, Home, Search, Settings, Shirt } from "lucide-react";
+import { Banknote, Home, Search, Settings, Shirt } from "lucide-react";
 
 import {
   Sidebar,
@@ -27,9 +27,9 @@ const items = [
     icon: Shirt,
   },
   {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
+    title: "Banner",
+    url: "/dashboard/banner-admin",
+    icon: Banknote,
   },
   {
     title: "Search",
@@ -46,33 +46,35 @@ const items = [
 export function SidebarDashboard() {
   const navbarPath = usePathname();
   return (
-    <Sidebar>
-      <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel>Dashboard</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton
-                    asChild
-                    className={`hover:bg-gray-950 transition-colors duration-200 hover:text-white ${
-                      navbarPath === item.url
-                        ? "bg-black transition-colors duration-200 text-white"
-                        : "text-black"
-                    }`}
-                  >
-                    <Link href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-      </SidebarContent>
-    </Sidebar>
+    <div>
+      <Sidebar>
+        <SidebarContent>
+          <SidebarGroup>
+            <SidebarGroupLabel>Dashboard</SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {items.map((item) => (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton
+                      asChild
+                      className={`hover:bg-gray-950 transition-colors duration-200 hover:text-white ${
+                        navbarPath === item.url
+                          ? "bg-black transition-colors duration-200 text-white"
+                          : "text-black"
+                      }`}
+                    >
+                      <Link href={item.url}>
+                        <item.icon />
+                        <span>{item.title}</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        </SidebarContent>
+      </Sidebar>
+    </div>
   );
 }

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -123,6 +124,7 @@ export default function ProductAdmin() {
                 <TableHead>Qty L</TableHead>
                 <TableHead>Qty XL</TableHead>
                 <TableHead>Status</TableHead>
+                <TableHead>Action</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -141,13 +143,13 @@ export default function ProductAdmin() {
                   <TableCell>{item.name}</TableCell>
                   <TableCell>{item.price}</TableCell>
                   <TableCell>{item.category}</TableCell>
-                  <TableCell>{item.couple}</TableCell>
+                  <TableCell>{item.couple === "1" ? "Yes" : "No"}</TableCell>
                   <TableCell>{item.qtyS}</TableCell>
                   <TableCell>{item.qtyM}</TableCell>
                   <TableCell>{item.qtyL}</TableCell>
-                  <TableCell>{item.qtyXl}</TableCell>
+                  <TableCell>{item.qtyXL}</TableCell>
                   <TableCell>
-                    {item.status === 0 ? (
+                    {item.active === "0" ? (
                       <span className="px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-600">
                         Menunggu Verifikasi
                       </span>
@@ -179,16 +181,10 @@ export default function ProductAdmin() {
 
                     {openMenu === item.id && (
                       <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50">
-                        <div className="py-1">
-                          <Button className="text-left px-4 py-2 hover:bg-gray-100 hover:text-black hover:border-black">
-                            Edit
-                          </Button>
-                          <Button className="text-left px-4 py-2 hover:bg-gray-100 hover:text-black hover:border-black">
-                            Detail
-                          </Button>
-                          <Button className="text-left px-4 py-2 hover:bg-gray-100 hover:text-black hover:border-black">
-                            Delete
-                          </Button>
+                        <div className="py-1 flex flex-col w-20">
+                          <Button>Edit</Button>
+                          <Button variant={"outline"}>Detail</Button>
+                          <Button variant={"destructive"}>Delete</Button>
                         </div>
                       </div>
                     )}

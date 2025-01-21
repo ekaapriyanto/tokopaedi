@@ -21,6 +21,7 @@ export default function HomeClient() {
   useEffect(() => {
     fetchBanners()
       .then((data) => {
+        console.log("Banner data:", data);
         if (data && data.data[0]) {
           setBanners(data.data);
         }
@@ -38,7 +39,7 @@ export default function HomeClient() {
         }
       })
       .catch((error) => {
-        console.error("Error fetching banners:", error);
+        console.error("Error fetching category:", error);
       });
   }, []);
 

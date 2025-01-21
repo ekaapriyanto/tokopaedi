@@ -5,9 +5,7 @@ export async function GET() {
   try {
     const db = await getDbConnection();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const [categoryimage] = await (db as any).query(
-      "SELECT * FROM categoryimage"
-    );
+    const [categoryimage] = await (db as any).query("SELECT * FROM category");
     return NextResponse.json({
       status: 200,
       message: "Berhasil",
